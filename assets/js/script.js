@@ -754,8 +754,8 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
-	index = categories.indexOf('cultenv');
-	categories.splice(index, 1);
+	/*index = categories.indexOf('cultenv');
+	categories.splice(index, 1);*/
 	index = categories.indexOf('final_score');
 	categories.splice(index, 1);
 	$.each(categories, function(i, varName){
