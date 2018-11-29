@@ -167,7 +167,7 @@ var variableMap = {
 	"cultenv":{
 		"name": "Cultural & Environmental Resources Index",
 		"description": "Impact on Culturally & Environmentally Sensitive Land Uses",
-		"column_chart": true,
+		"column_chart": false,
 		"format": "decimal"
 	},
 	"social_equity":{
@@ -754,10 +754,8 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
-	/*index = categories.indexOf('cultenv');
+	index = categories.indexOf('cultenv');
 	categories.splice(index, 1);
-	
-	*/
 	index = categories.indexOf('final_score');
 	categories.splice(index, 1);
 	$.each(categories, function(i, varName){
@@ -785,7 +783,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['performance_tier', 'final_score', 'cost'];
+	var variableList = ['cultenv', 'final_score', 'cost'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
