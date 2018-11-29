@@ -90,8 +90,8 @@ var previousMouseId;
 var formats = {};
 var searchHighlightIds = [];
 
-var xVariablePreset = 'cultenv'
-var yVariablePreset = 'final_score'
+var xVariablePreset = 'final_score'
+var yVariablePreset = 'cost'
 var rVariablePreset = 'cost'
 var colorVariablePreset = 'cost'
 var defaultHex = "#f768a1";
@@ -167,7 +167,7 @@ var variableMap = {
 	"cultenv":{
 		"name": "Cultural & Environmental Resources Index",
 		"description": "Impact on Culturally & Environmentally Sensitive Land Uses",
-		"column_chart": false,
+		"column_chart": true,
 		"format": "decimal"
 	},
 	"social_equity":{
@@ -783,7 +783,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['cultenv', 'final_score', 'cost'];
+	var variableList = ['final_score', 'cost'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
@@ -1018,21 +1018,21 @@ function removeHighlightChartPoint(id){
 }
 function drawScatter(data){
 	var xBand, yBand, label;
-	if (xVariable === 'cultenv' ){
+	if (xVariable === 'final_score' ){
 		xBand = [{ // mark the 0 values for current need
 						color: '#FCFFC5',
 						from: -5,
 						to: 5
 					}];
 	}
-	if (yVariable === 'cultenv' ){
+	if (yVariable === 'final_score' ){
 		yBand = [{ // mark the 0 values for current need
 						color: '#FCFFC5',
 						from: -5,
 						to: 5
 					}];
 	}
-	if (yVariable === 'cultenv' || xVariable === 'cultenv'){
+	if (yVariable === 'final_score' || xVariable === 'final_score'){
 		label = {
             items: [{
                 html: 'Projects in yellow are new facilities (i.e., no current need can be determined).',
@@ -1324,7 +1324,7 @@ function initialize() {
 		var $variableDesc = $('#' + this.id + '-description');
 		var description = typeof variableMap[this.value] !== 'undefined' ? variableMap[this.value].description : '';
 		$variableDesc.html(description);
-		if (this.id === 'xVariable' && this.value === 'cultenv'){
+		if (this.id === 'xVariable' && this.value === 'final_score'){
 			// $variableDesc.append('<br/><strong>Note:</strong> Highlighted yellow region shows new projects that by definition do not have a current need (hence a zero value for ' + variableMap[this.value].name)
 		}
 	});
