@@ -110,7 +110,7 @@ var variableMap = {
 	},
 	"performance_tier":{
 		"name": "Performance Tier",
-		"description": "Monetary benefit of the project in millions if it is built in 2015",
+		"description": "Performance Tier",
 		"column_chart": false,
 		"format": "dollar"
 	},
@@ -123,80 +123,80 @@ var variableMap = {
 	
 	
 	"mobility":{
-		"name": "Mobility Index",
-		"description": "Travel Time Index on project link",
+		"name": "Mobility & Congestion Index",
+		"description": "1)Corridor Congestion Intensity 2) Change in Congestion Extent",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"reliability":{
 		"name": "Reliability Index",
-		"description": "Ratio of crash rate/ average crash rate by facility type",
+		"description": "Aggregated 80% travel time / 50% travel time for all weekdays",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"connect":{
-		"name": "Connect Index",
-		"description": "Whether or not project lies within the ASTRO Network",
+		"name": "Network Connectivity Index",
+		"description": "Supports the Regional Policy Networks",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"multimodal":{
-		"name": "Multimodal Index",
-		"description": "Trip reliability on project link using Buffer Index",
+		"name": "Multimodalism Index",
+		"description": "Additional person throughput by active modes or transit",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"assetmngmt":{
-		"name": "Asset Mngmt Index",
-		"description": "Whether or not project lies within an ETA",
+		"name": "Asset Management & Resiliency Index",
+		"description": "Facility Vulnerability",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"saftey":{
 		"name": "Safety Index",
-		"description": "Average concentration of particulate matter around project link ",
+		"description": "Improved Safety",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"airclimate":{
 		"name": "Air and Climate Index",
-		"description": "The percent of vehicles going to or coming from an activity center on the project link ",
+		"description": "1) Project Emissions 2) Near Road Emissions Exposure",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"cultenv":{
-		"name": "Culture and Environment Index",
-		"description": "The sum of the weighted current data points indicating need",
+		"name": "Cultural & Environmental Resources Index",
+		"description": "Impact on Culturally & Environmentally Sensitive Land Uses",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"social_equity":{
 		"name": "Social Equity Index",
-		"description": "Difference in VHD on the project link build-no build",
+		"description": "Does project serve an ETA community?",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"land_compat":{
-		"name": "Land Compat Index",
-		"description": "Difference in percent of vehicles going to or coming from an activity center on the project link build-no build",
+		"name": "Land Use Compatibility",
+		"description": "Land Use Compatibility",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"goods_move":{
-		"name": "Future Freight Index",
-		"description": "Difference in truck VMT on link build-no build",
+		"name": "Goods Movement Index",
+		"description": "Does the project improve the movement of freight and is it located on ARC’s regional freight system (ASTRoMaP), GDOT’s Statewide Designated Freight Corridors or the FHWA National Highway Freight Network (NHFN)?",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"emp_access":{
-		"name": "Future Deliverability Index",
-		"description": "Total environmental obstacles along project links inversed so high value= high deliverability",
+		"name": "Employment Accessibility Index",
+		"description": "Does the project connect to (or is it within) a Regional Employment Center, a Freight Cluster Area or a Regional Place?",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"final_score":{
 		"name": "Final Score",
-		"description": "The sum of the weighted future data points indicating performance",
+		"description": "The sum of the weighted  data points indicating performance",
 		"column_chart": false,
 		"format": "decimal"
 	},
