@@ -108,7 +108,7 @@ var variableMap = {
 		"column_chart": false,
 		"format": "decimal"
 	},
-	"benefit_2015":{
+	"performance_tier":{
 		"name": "2015 Benefit in Millions",
 		"description": "Monetary benefit of the project in millions if it is built in 2015",
 		"column_chart": false,
@@ -779,7 +779,7 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('ID');
 	categories.splice(index, 1);
-	index = categories.indexOf('benefit_2015');
+	index = categories.indexOf('performance_tier');
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
