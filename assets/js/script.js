@@ -745,7 +745,7 @@ function getStationData(layer, source){
 		weight: 10
 	});
 	info.update(layer.feature.properties);
-	var categories = d3.keys(csvMap['GW-380'][0]);
+	var categories = d3.keys(csvMap['GW-ITS3-5'][0]);
 	var index = categories.indexOf('project_type');
 	categories.splice(index, 1);
 	index = categories.indexOf('ID');
