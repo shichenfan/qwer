@@ -93,7 +93,7 @@ var searchHighlightIds = [];
 var xVariablePreset = 'current_score'
 var yVariablePreset = 'future_score'
 var rVariablePreset = 'bc_2040'
-var colorVariablePreset = 'total_cost'
+var colorVariablePreset = 'cost'
 var defaultHex = "#f768a1";
 var variableMap = {
 	"ID":{
