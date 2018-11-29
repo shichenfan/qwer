@@ -90,8 +90,8 @@ var previousMouseId;
 var formats = {};
 var searchHighlightIds = [];
 
-var xVariablePreset = 'current_score'
-var yVariablePreset = 'future_score'
+var xVariablePreset = 'cultenv'
+var yVariablePreset = 'final_score'
 var rVariablePreset = 'cost'
 var colorVariablePreset = 'cost'
 var defaultHex = "#f768a1";
@@ -122,91 +122,79 @@ var variableMap = {
 	},
 	
 	
-	"current_congestion":{
+	"mobility":{
 		"name": "Current Congestion Index",
 		"description": "Travel Time Index on project link",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_safety":{
+	"reliability":{
 		"name": "Current Safety Index",
 		"description": "Ratio of crash rate/ average crash rate by facility type",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_freight":{
+	"connect":{
 		"name": "Current Freight Index",
 		"description": "Whether or not project lies within the ASTRO Network",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_reliability":{
+	"multimodal":{
 		"name": "Current Reliability Index",
 		"description": "Trip reliability on project link using Buffer Index",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_eta":{
+	"assetmngmt":{
 		"name": "Current Equity Index",
 		"description": "Whether or not project lies within an ETA",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_air":{
+	"saftey":{
 		"name": "Current Air Quality Index",
 		"description": "Average concentration of particulate matter around project link ",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_access":{
+	"airclimate":{
 		"name": "Current Accessibility Index",
 		"description": "The percent of vehicles going to or coming from an activity center on the project link ",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"current_score":{
+	"cultenv":{
 		"name": "Current Need",
 		"description": "The sum of the weighted current data points indicating need",
 		"column_chart": false,
 		"format": "decimal"
 	},
-	"future_congestion":{
+	"social_equity":{
 		"name": "Future Congestion Index",
 		"description": "Difference in VHD on the project link build-no build",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"future_access":{
+	"land_compat":{
 		"name": "Future Accessibility Index",
 		"description": "Difference in percent of vehicles going to or coming from an activity center on the project link build-no build",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"future_freight":{
+	"goods_move":{
 		"name": "Future Freight Index",
 		"description": "Difference in truck VMT on link build-no build",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"future_deliverable":{
+	"emp_access":{
 		"name": "Future Deliverability Index",
 		"description": "Total environmental obstacles along project links inversed so high value= high deliverability",
 		"column_chart": true,
 		"format": "decimal"
 	},
-	"future_air":{
-		"name": "Future Air Quality Index",
-		"description": "Difference in level of particulates regionally build-no build",
-		"column_chart": true,
-		"format": "decimal"
-	},
-	"future_volume":{
-		"name": "Future Volume Index",
-		"description": "Volume/Mile categorized",
-		"column_chart": true,
-		"format": "decimal"
-	},
-	"future_score":{
+	"final_score":{
 		"name": "Future Performance",
 		"description": "The sum of the weighted future data points indicating performance",
 		"column_chart": false,
@@ -766,9 +754,9 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
-	index = categories.indexOf('current_score');
+	index = categories.indexOf('cultenv');
 	categories.splice(index, 1);
-	index = categories.indexOf('future_score');
+	index = categories.indexOf('final_score');
 	categories.splice(index, 1);
 	$.each(categories, function(i, varName){
 		if (typeof variableMap[varName] !== 'undefined')
@@ -795,7 +783,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['current_score', 'future_score', 'cost'];
+	var variableList = ['cultenv', 'final_score', 'cost'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
@@ -1030,21 +1018,21 @@ function removeHighlightChartPoint(id){
 }
 function drawScatter(data){
 	var xBand, yBand, label;
-	if (xVariable === 'current_score' ){
+	if (xVariable === 'cultenv' ){
 		xBand = [{ // mark the 0 values for current need
 						color: '#FCFFC5',
 						from: -5,
 						to: 5
 					}];
 	}
-	if (yVariable === 'current_score' ){
+	if (yVariable === 'cultenv' ){
 		yBand = [{ // mark the 0 values for current need
 						color: '#FCFFC5',
 						from: -5,
 						to: 5
 					}];
 	}
-	if (yVariable === 'current_score' || xVariable === 'current_score'){
+	if (yVariable === 'cultenv' || xVariable === 'cultenv'){
 		label = {
             items: [{
                 html: 'Projects in yellow are new facilities (i.e., no current need can be determined).',
@@ -1336,7 +1324,7 @@ function initialize() {
 		var $variableDesc = $('#' + this.id + '-description');
 		var description = typeof variableMap[this.value] !== 'undefined' ? variableMap[this.value].description : '';
 		$variableDesc.html(description);
-		if (this.id === 'xVariable' && this.value === 'current_score'){
+		if (this.id === 'xVariable' && this.value === 'cultenv'){
 			// $variableDesc.append('<br/><strong>Note:</strong> Highlighted yellow region shows new projects that by definition do not have a current need (hence a zero value for ' + variableMap[this.value].name)
 		}
 	});
