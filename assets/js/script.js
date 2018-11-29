@@ -112,7 +112,7 @@ var variableMap = {
 		"name": "Performance Tier",
 		"description": "Performance Tier",
 		"column_chart": false,
-		"format": "dollar"
+		"format": "integer"
 	},
 	"cost":{
 		"name": "Cost in Millions",
