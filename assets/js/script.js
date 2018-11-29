@@ -159,19 +159,19 @@ var variableMap = {
 		"format": "decimal"
 	},
 	"airclimate":{
-		"name": "Current Accessibility Index",
+		"name": "Air and Climate Index",
 		"description": "The percent of vehicles going to or coming from an activity center on the project link ",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"cultenv":{
-		"name": "Current Need",
+		"name": "Culture and Environment Index",
 		"description": "The sum of the weighted current data points indicating need",
 		"column_chart": false,
 		"format": "decimal"
 	},
 	"social_equity":{
-		"name": "Future Congestion Index",
+		"name": "Social Equity Index",
 		"description": "Difference in VHD on the project link build-no build",
 		"column_chart": true,
 		"format": "decimal"
@@ -195,7 +195,7 @@ var variableMap = {
 		"format": "decimal"
 	},
 	"final_score":{
-		"name": "Future Performance",
+		"name": "Final Score",
 		"description": "The sum of the weighted future data points indicating performance",
 		"column_chart": false,
 		"format": "decimal"
@@ -916,7 +916,7 @@ function drawBarChart(data, type){
         yAxis: {
             allowDecimals: true,
             min: 0,
-            max: 1,
+            max: 100,
             title: {
                 text: 'Score'
             }
@@ -944,7 +944,7 @@ function drawBarChart(data, type){
             data: regionalData,
             stack: 'female'
         }, {
-            name: 'County average',
+            name: 'Project Type average',
             data: data.project_type,
             stack: 'female'
         },
