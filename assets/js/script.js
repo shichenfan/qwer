@@ -102,7 +102,7 @@ var variableMap = {
 		"column_chart": false,
 		"format": "decimal"
 	},
-	"county":{
+	"project_type":{
 		"name": "County",
 		"description": "County of origin",
 		"column_chart": false,
@@ -763,7 +763,7 @@ function getStationData(layer, source){
 	if (layer.feature.properties.Fact_Sheet !== null){
 		description += '<br/><a class="btn btn-default btn-xs" href="'+layer.feature.properties.Fact_Sheet+'"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> View Fact Sheet</a>';
 	}
-	var county = csvMap[id][0].county;
+	var project_type = csvMap[id][0].project_type;
 	// console.log(county);
 	layer.setStyle({
 		fillColor: highlightStroke,
@@ -774,7 +774,7 @@ function getStationData(layer, source){
 	});
 	info.update(layer.feature.properties);
 	var categories = d3.keys(csvMap['AR-959'][0]);
-	var index = categories.indexOf('county');
+	var index = categories.indexOf('project_type');
 	categories.splice(index, 1);
 	index = categories.indexOf('ID');
 	categories.splice(index, 1);
@@ -814,7 +814,7 @@ function getStationData(layer, source){
 		description: id + ' Component Scores',
 		categories: categories,
 		data: data,
-		county: countyData[county]
+		project_type: countyData[project_type]
 	};
 	var variableList = ['current_score', 'future_score', 'total_cost', 'bc_2015', 'bc_2040'];
 	drawBarChart(chartData, 'totals');
@@ -908,7 +908,7 @@ function getSummaryString(variableList, row){
 	summaryTable.append('<thead><tr><th>Category</th><th>'+row['ID']+'</th><th>Regional</th></tr></thead>')
 	var tBody = $('<tbody>');
 	$.each(variableMap, function(varName, data){
-		if (!data.column_chart && varName !== 'ID' && varName !== 'county'){
+		if (!data.column_chart && varName !== 'ID' && varName !== 'project_type'){
 			var projValue = row[varName];
 			var regionalValue = regionalMap[varName]/csvRows.length;
 			projValue = formats[variableMap[varName].format](projValue);
@@ -978,7 +978,7 @@ function drawBarChart(data, type){
             stack: 'female'
         }, {
             name: 'County average',
-            data: data.county,
+            data: data.project_type,
             stack: 'female'
         },
         ]
@@ -1346,7 +1346,7 @@ function initialize() {
 
 	$.each(variableMap, function(csvVar, data){
 		// var selected = i === 1 ? '' : 'selected';
-		if (csvVar !== 'ID' && csvVar !== 'county'){
+		if (csvVar !== 'ID' && csvVar !== 'project_type'){
 			selected = '';
 			$('.scatterVariable').append('<option value=' + csvVar + ' ' + selected + '>' + data.name + '</option>');	
 		}
@@ -1420,7 +1420,7 @@ function initialize() {
 				})
 				.map(csv);
 			countyData = d3.nest()
-				.key(function(d) { return d.county; })
+				.key(function(d) { return d.project_type; })
 				.rollup(function(d){
 					var dataArray = [];
 					$.each(variableMap, function(varName, data){
@@ -1453,7 +1453,7 @@ function initialize() {
 				.map(csv);
 
 			countyMap = d3.nest()
-				.key(function(d) { return d.county; })
+				.key(function(d) { return d.project_type; })
 				.map(csv);
 			// console.log(csvMap);
 			
