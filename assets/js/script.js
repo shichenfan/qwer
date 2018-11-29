@@ -167,7 +167,7 @@ var variableMap = {
 	"cultenv":{
 		"name": "Culture and Environment Index",
 		"description": "The sum of the weighted current data points indicating need",
-		"column_chart": false,
+		"column_chart": true,
 		"format": "decimal"
 	},
 	"social_equity":{
