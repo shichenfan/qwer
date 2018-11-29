@@ -108,18 +108,19 @@ var variableMap = {
 		"column_chart": false,
 		"format": "decimal"
 	},
-	"total_cost":{
-		"name": "Cost in Millions",
-		"description": "Total cost of project in millions of dollars",
-		"column_chart": false,
-		"format": "dollar"
-	},
 	"benefit_2015":{
 		"name": "2015 Benefit in Millions",
 		"description": "Monetary benefit of the project in millions if it is built in 2015",
 		"column_chart": false,
 		"format": "dollar"
 	},
+	"cost":{
+		"name": "Cost in Millions",
+		"description": "Total cost of project in millions of dollars",
+		"column_chart": false,
+		"format": "dollar"
+	},
+	
 	"benefit_2040":{
 		"name": "2040 Benefit in Millions",
 		"description": "Monetary benefit of the project in millions if it is built in 2040",
@@ -778,9 +779,9 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('ID');
 	categories.splice(index, 1);
-	index = categories.indexOf('total_cost');
-	categories.splice(index, 1);
 	index = categories.indexOf('benefit_2015');
+	categories.splice(index, 1);
+	index = categories.indexOf('cost');
 	categories.splice(index, 1);
 	index = categories.indexOf('benefit_2040');
 	categories.splice(index, 1);
@@ -816,7 +817,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['current_score', 'future_score', 'total_cost', 'bc_2015', 'bc_2040'];
+	var variableList = ['current_score', 'future_score',  'bc_2015', 'cost','bc_2040'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
