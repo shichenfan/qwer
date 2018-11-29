@@ -92,7 +92,7 @@ var searchHighlightIds = [];
 
 var xVariablePreset = 'current_score'
 var yVariablePreset = 'future_score'
-var rVariablePreset = 'bc_2040'
+var rVariablePreset = 'cost'
 var colorVariablePreset = 'cost'
 var defaultHex = "#f768a1";
 var variableMap = {
@@ -121,24 +121,7 @@ var variableMap = {
 		"format": "dollar"
 	},
 	
-	"benefit_2040":{
-		"name": "2040 Benefit in Millions",
-		"description": "Monetary benefit of the project in millions if it is built in 2040",
-		"column_chart": false,
-		"format": "dollar"
-	},
-	"bc_2015":{
-		"name": "2015 Benefit/Cost",
-		"description": "Benefit/Cost of project if it were built in 2015",
-		"column_chart": false,
-		"format": "decimal"
-	},
-	"bc_2040":{
-		"name": "2040 Benefit/Cost",
-		"description": "Benefit/Cost of project if it were built in 2040 ",
-		"column_chart": false,
-		"format": "decimal"
-	},
+	
 	"current_congestion":{
 		"name": "Current Congestion Index",
 		"description": "Travel Time Index on project link",
@@ -783,12 +766,6 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
-	index = categories.indexOf('benefit_2040');
-	categories.splice(index, 1);
-	index = categories.indexOf('bc_2015');
-	categories.splice(index, 1);
-	index = categories.indexOf('bc_2040');
-	categories.splice(index, 1);
 	index = categories.indexOf('current_score');
 	categories.splice(index, 1);
 	index = categories.indexOf('future_score');
@@ -798,6 +775,7 @@ function getStationData(layer, source){
 			categories[i] = variableMap[varName].name;
 
 	});
+	
 	// console.log(csvMap[id]);
 	// console.log(id);
 	var data;
@@ -817,7 +795,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['current_score', 'future_score',  'bc_2015', 'cost','bc_2040'];
+	var variableList = ['current_score', 'future_score', 'cost'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
