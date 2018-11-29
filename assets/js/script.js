@@ -103,13 +103,13 @@ var variableMap = {
 		"format": "decimal"
 	},
 	"project_type":{
-		"name": "County",
-		"description": "County of origin",
+		"name": "Project Type",
+		"description": "Project Type",
 		"column_chart": false,
 		"format": "decimal"
 	},
 	"performance_tier":{
-		"name": "2015 Benefit in Millions",
+		"name": "Performance Tier",
 		"description": "Monetary benefit of the project in millions if it is built in 2015",
 		"column_chart": false,
 		"format": "dollar"
@@ -123,37 +123,37 @@ var variableMap = {
 	
 	
 	"mobility":{
-		"name": "Current Congestion Index",
+		"name": "Mobility Index",
 		"description": "Travel Time Index on project link",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"reliability":{
-		"name": "Current Safety Index",
+		"name": "Reliability Index",
 		"description": "Ratio of crash rate/ average crash rate by facility type",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"connect":{
-		"name": "Current Freight Index",
+		"name": "Connect Index",
 		"description": "Whether or not project lies within the ASTRO Network",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"multimodal":{
-		"name": "Current Reliability Index",
+		"name": "Multimodal Index",
 		"description": "Trip reliability on project link using Buffer Index",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"assetmngmt":{
-		"name": "Current Equity Index",
+		"name": "Asset Mngmt Index",
 		"description": "Whether or not project lies within an ETA",
 		"column_chart": true,
 		"format": "decimal"
 	},
 	"saftey":{
-		"name": "Current Air Quality Index",
+		"name": "Safety Index",
 		"description": "Average concentration of particulate matter around project link ",
 		"column_chart": true,
 		"format": "decimal"
@@ -177,7 +177,7 @@ var variableMap = {
 		"format": "decimal"
 	},
 	"land_compat":{
-		"name": "Future Accessibility Index",
+		"name": "Land Compat Index",
 		"description": "Difference in percent of vehicles going to or coming from an activity center on the project link build-no build",
 		"column_chart": true,
 		"format": "decimal"
