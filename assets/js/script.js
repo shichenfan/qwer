@@ -112,7 +112,7 @@ var variableMap = {
 		"name": "Performance Tier",
 		"description": "Performance Tier",
 		"column_chart": false,
-		"format": "integer"
+		"format": "decimal"
 	},
 	"cost":{
 		"name": "Cost in Millions",
@@ -754,8 +754,10 @@ function getStationData(layer, source){
 	categories.splice(index, 1);
 	index = categories.indexOf('cost');
 	categories.splice(index, 1);
-	index = categories.indexOf('cultenv');
+	/*index = categories.indexOf('cultenv');
 	categories.splice(index, 1);
+	
+	*/
 	index = categories.indexOf('final_score');
 	categories.splice(index, 1);
 	$.each(categories, function(i, varName){
@@ -783,7 +785,7 @@ function getStationData(layer, source){
 		data: data,
 		project_type: countyData[project_type]
 	};
-	var variableList = ['cultenv', 'final_score', 'cost'];
+	var variableList = ['performance_tier', 'final_score', 'cost'];
 	drawBarChart(chartData, 'totals');
 	var summaryString = getSummaryString(variableList, csvMap[id][0]);
 	$('#data-summary')
